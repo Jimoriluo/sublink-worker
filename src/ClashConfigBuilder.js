@@ -78,7 +78,7 @@ export class ClashConfigBuilder extends BaseConfigBuilder {
                     'flow': proxy.flow ?? undefined,
                 };
             case 'hysteria2':
-                return {
+                const hysteria2Config = {
                     name: proxy.tag,
                     type: proxy.type,
                     server: proxy.server,
@@ -93,6 +93,11 @@ export class ClashConfigBuilder extends BaseConfigBuilder {
                     sni: proxy.tls?.server_name || '',
                     'skip-cert-verify': proxy.tls?.insecure || true,
                 };
+                // 添加 ports 字段支持
+                if (proxy.ports) {
+                    hysteria2Config.ports = proxy.ports;
+                }
+                return hysteria2Config;
             case 'trojan':
                 return {
                     name: proxy.tag,
