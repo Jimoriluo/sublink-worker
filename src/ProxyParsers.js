@@ -191,7 +191,8 @@ export class ProxyParser {
             auth: params.auth,
             recv_window_conn: params.recv_window_conn,
             up_mbps: params?.upmbps ? parseInt(params.upmbps) : undefined,
-            down_mbps: params?.downmbps ? parseInt(params.downmbps) : undefined
+            down_mbps: params?.downmbps ? parseInt(params.downmbps) : undefined,
+			ports: params.mport // 添加 mport 参数支持
           };
         }
       }
