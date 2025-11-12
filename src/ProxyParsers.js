@@ -203,7 +203,7 @@ export function convertYamlProxyToObject(p) {
         recv_window_conn: p['recv-window-conn'],
         up: p.up,
         down: p.down,
-        ports: p.ports || (p.port ? parseInt(p.port) : undefined),
+        ports: p.ports || (p.port ? String(parseInt(p.port)) : undefined),
         hop_interval: Number.isNaN(hopInterval) ? hopIntervalRaw : hopInterval,
         alpn: toArray(p.alpn),
         fast_open: typeof p['fast-open'] !== 'undefined' ? !!p['fast-open'] : undefined
@@ -516,7 +516,7 @@ export class ProxyParser {
             recv_window_conn: params.recv_window_conn,
             up: params.up ?? (params.upmbps ? parseMaybeNumber(params.upmbps) : undefined),
             down: params.down ?? (params.downmbps ? parseMaybeNumber(params.downmbps) : undefined),
-            ports: params.ports || (params.mport ? parseArray(params.mport) : (port ? parseInt(port) : undefined)),
+            ports: params.ports || (params.mport ? String(parseArray(params.mport)) : (port ? String(parseInt(port)) : undefined)),
             hop_interval: hopInterval,
             alpn: parseArray(params.alpn),
             fast_open: parseBool(params['fast-open'])
