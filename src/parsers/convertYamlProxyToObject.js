@@ -192,7 +192,6 @@ export function convertYamlProxyToObject(p) {
                 tag: name,
                 type: 'hysteria2',
                 server: p.server,
-                server_port: parseInt(p.port),
                 password: p.password,
                 tls,
                 obfs: Object.keys(obfs).length > 0 ? obfs : undefined,
