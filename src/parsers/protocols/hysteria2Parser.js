@@ -32,7 +32,7 @@ export function parseHysteria2(url) {
         tag: name,
         type: 'hysteria2',
         server: host,
-        server_port: port,
+        //        server_port: ports,
         password: password,
         tls,
         obfs: Object.keys(obfs).length > 0 ? obfs : undefined,
