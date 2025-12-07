@@ -40,7 +40,7 @@ export function parseHysteria2(url) {
         recv_window_conn: params.recv_window_conn,
         up: params.up ?? (params.upmbps ? parseMaybeNumber(params.upmbps) : undefined),
         down: params.down ?? (params.downmbps ? parseMaybeNumber(params.downmbps) : undefined),
-        ports: params.ports,
+        ports: params.ports || (params.mport ? String(parseArray(params.mport)) : (port ? String(parseInt(port)) : undefined)),
         hop_interval: hopInterval,
         alpn: parseArray(params.alpn),
         fast_open: parseBool(params['fast-open'])
